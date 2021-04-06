@@ -5,6 +5,9 @@ import edu.kis.powp.jobs2d.Job2dDriver;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Base composite of drivers.
+ */
 public class DriverComposite implements IDriverComposite {
     private List<Job2dDriver> children = new ArrayList<>();
 

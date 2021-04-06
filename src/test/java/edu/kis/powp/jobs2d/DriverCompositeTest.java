@@ -10,6 +10,10 @@ import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
 
 import java.util.logging.Logger;
 
+/**
+ * Test of DriverComposite behaviour.
+ * Expect to draw figure in panel and log drawing operations.
+ */
 public class DriverCompositeTest {
 
     public static void main(String[] args) {
