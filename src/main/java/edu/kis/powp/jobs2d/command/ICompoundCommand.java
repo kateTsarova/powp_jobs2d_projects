@@ -7,7 +7,7 @@ import java.util.Iterator;
  */
 public interface ICompoundCommand extends DriverCommand {
 
-	public Iterator<DriverCommand> iterator();
+    public Iterator<DriverCommand> iterator();
 
 	public ICompoundCommand clone();
 

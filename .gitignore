@@ -3,5 +3,6 @@
 /.classpath
 /.project
 .settings
-.idea/
-jobs2d.iml
+*.iml
+.idea
+
