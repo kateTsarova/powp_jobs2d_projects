@@ -1,9 +1,6 @@
 package edu.kis.powp.legacy.drawer;
 
-import javax.swing.event.MouseInputAdapter;
 import javax.swing.event.MouseInputListener;
-
-import org.w3c.dom.events.MouseEvent;
 
 import edu.kis.legacy.drawer.panel.DefaultDrawerFrame;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
