@@ -37,11 +37,11 @@ public class SelectTestMouseListener implements ActionListener {
                 final int halfWidth = panel.getWidth() / 2;
                 final int halfHeight = panel.getHeight() / 2;
                 if(e.getButton() == LEFT_BUTTON){
-                    driver.operateTo(e.getX() - halfWidth, halfHeight);
-                    driver.setPosition(e.getX() - halfWidth, halfHeight);
+                    driver.operateTo(e.getX() - halfWidth, e.getY() - halfHeight);
+                    driver.setPosition(e.getX() - halfWidth, e.getY() - halfHeight);
                 }
                 else if(e.getButton() == RIGHT_BUTTON){
-                    driver.setPosition(e.getX() - halfWidth, halfHeight);
+                    driver.setPosition(e.getX() - halfWidth, e.getY() - halfHeight);
                 }
             }
 
