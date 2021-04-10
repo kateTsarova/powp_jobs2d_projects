@@ -29,16 +29,4 @@ public class DriverComposite implements IDriverComposite {
     public void add(Job2dDriver item) {
         children.add(item);
     }
-
-    @Override
-    public void remove(Job2dDriver item) {
-        children.remove(item);
-    }
-
-    @Override
-    public Job2dDriver[] getChildren() {
-        Job2dDriver[] driverChildren = new Job2dDriver[children.size()];
-        children.toArray(driverChildren);
-        return driverChildren;
-    }
 }

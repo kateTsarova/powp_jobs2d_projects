@@ -5,5 +5,6 @@ import edu.kis.powp.jobs2d.Job2dDriver;
 /**
  * Represents a hierarchy of drivers.
  */
-public interface IDriverComposite extends IComposite<Job2dDriver>, Job2dDriver {
+public interface IDriverComposite extends Job2dDriver {
+    void add(Job2dDriver item);
 }
