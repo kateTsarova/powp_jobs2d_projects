@@ -3,9 +3,10 @@ package edu.kis.powp.jobs2d.command;
 import edu.kis.powp.jobs2d.Job2dDriver;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class ComplexCommand implements DriverCommand {
+public class ComplexCommand implements ICompoundCommand {
     private final List<DriverCommand> commands;
 
     private ComplexCommand(List<DriverCommand> commands) {
@@ -15,6 +16,11 @@ public class ComplexCommand implements DriverCommand {
     @Override
     public void execute(Job2dDriver driver) {
         commands.forEach(c -> c.execute(driver));
+    }
+
+    @Override
+    public Iterator<DriverCommand> iterator() {
+        return commands.iterator();
     }
 
     public static final class Builder {
