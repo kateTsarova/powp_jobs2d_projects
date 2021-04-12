@@ -1,11 +1,14 @@
 package edu.kis.powp.visitor;
 
 import edu.kis.powp.jobs2d.command.DriverCommand;
+import edu.kis.powp.jobs2d.command.ICompoundCommand;
 import edu.kis.powp.jobs2d.command.OperateToCommand;
 import edu.kis.powp.jobs2d.command.SetPositionCommand;
+import edu.kis.powp.jobs2d.command.manager.DriverCommandManager;
 import edu.kis.powp.jobs2d.command.visitor.CommandTypeCounterVisitor;
 
-import java.sql.Driver;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,9 +27,8 @@ public class VisitorTest {
         int counterActual = 10;
         CommandTypeCounterVisitor visitor = new CommandTypeCounterVisitor();
 
-        for (int i = 0; i < counterActual; i++) {
+        for (int i = 0; i < counterActual; i++)
             new OperateToCommand((int) (Math.random() * 10), (int) (Math.random() * 10)).accept(visitor);
-        }
 
         Assert.assertEquals(visitor.getOperateToCounter(), counterActual);
         Assert.assertEquals(visitor.getSetPositionCounter(), 0);
@@ -38,15 +40,47 @@ public class VisitorTest {
         int operateToActual = 14;
         CommandTypeCounterVisitor visitor = new CommandTypeCounterVisitor();
 
-        for (int i = 0; i < setPositionActual; i++) {
+        for (int i = 0; i < setPositionActual; i++)
             new SetPositionCommand((int) (Math.random() * 10), (int) (Math.random() * 10)).accept(visitor);
-        }
 
-        for (int i = 0; i < operateToActual; i++) {
+        for (int i = 0; i < operateToActual; i++)
             new OperateToCommand((int) (Math.random() * 10), (int) (Math.random() * 10)).accept(visitor);
-        }
 
         Assert.assertEquals(visitor.getOperateToCounter(), operateToActual);
         Assert.assertEquals(visitor.getSetPositionCounter(), setPositionActual);
+    }
+
+    @Test
+    public void testCurrentCommandTypeFilled() {
+        DriverCommandManager manager = new DriverCommandManager();
+        List<DriverCommand> commList = new ArrayList<DriverCommand>();
+        CommandTypeCounterVisitor visitor = new CommandTypeCounterVisitor();
+        int setPositionActual = 20;
+        int operateToActual = 15;
+
+        for (int i = 0; i < setPositionActual; i++)
+            commList.add(new SetPositionCommand(i / 10, (i + 3) / 10));
+        for (int i = 0; i < operateToActual; i++)
+            commList.add(new OperateToCommand(i / 5, (i - 5) / 10));
+
+        manager.setCurrentCommand(commList, "testListOfCommands");
+        manager.getCurrentCommand().accept(visitor);
+
+        Assert.assertEquals(visitor.getOperateToCounter(), operateToActual);
+        Assert.assertEquals(visitor.getSetPositionCounter(), setPositionActual);
+
+    }
+
+    @Test
+    public void testCurrentCommandTypeSingle() {
+        DriverCommandManager manager = new DriverCommandManager();
+        CommandTypeCounterVisitor visitor = new CommandTypeCounterVisitor();
+
+        manager.setCurrentCommand(new OperateToCommand(3, 6));
+        manager.getCurrentCommand().accept(visitor);
+
+        Assert.assertEquals(visitor.getOperateToCounter(), 1);
+        Assert.assertEquals(visitor.getSetPositionCounter(), 0);
+
     }
 }
