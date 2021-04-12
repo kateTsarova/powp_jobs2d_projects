@@ -1,9 +1,13 @@
 package edu.kis.powp.jobs2d.command.visitor;
 
+import java.util.Iterator;
+
+import edu.kis.powp.jobs2d.command.DriverCommand;
+import edu.kis.powp.jobs2d.command.ICompoundCommand;
 import edu.kis.powp.jobs2d.command.OperateToCommand;
 import edu.kis.powp.jobs2d.command.SetPositionCommand;
 
-public class CommandVisitor implements Visitor {
+public class CommandTypeCounterVisitor implements Visitor {
 
     private long operateToCounter;
     private long setPositionCounter;
@@ -28,5 +32,12 @@ public class CommandVisitor implements Visitor {
 
     public String toString() {
         return "Operate to: " + operateToCounter + " set position: " + setPositionCounter + " .";
+    }
+
+    @Override
+    public void visitICompoundCommand(ICompoundCommand iCompoundCommand) {
+        Iterator<DriverCommand> itr = iCompoundCommand.iterator();
+        while (itr.hasNext())
+            itr.next().accept(this);
     }
 }
