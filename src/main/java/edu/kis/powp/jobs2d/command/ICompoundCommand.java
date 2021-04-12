@@ -13,8 +13,6 @@ public interface ICompoundCommand extends DriverCommand {
 
     @Override
     default void accept(Visitor visitor) {
-        while (iterator().hasNext()) {
-            iterator().next().accept(visitor);
-        }
+        visitor.visitICompoundCommand(this);
     }
 }
