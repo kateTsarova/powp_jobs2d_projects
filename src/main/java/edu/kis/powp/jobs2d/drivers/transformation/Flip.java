@@ -1,10 +1,10 @@
 package edu.kis.powp.jobs2d.drivers.transformation;
 
 public class Flip implements PointTransformation {
-    boolean horizontally = false;
-    boolean vertically = false;
-    int h = 1;
-    int v = 1;
+    private boolean horizontally = false;
+    private boolean vertically = false;
+    private int h = 1;
+    private int v = 1;
 
     public Flip(boolean horizontally, boolean vertically) {
         this.horizontally = horizontally;
