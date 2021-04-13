@@ -8,8 +8,12 @@ import java.util.logging.Logger;
 import edu.kis.legacy.drawer.panel.DrawPanelController;
 import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
+import edu.kis.powp.jobs2d.command.DriverCommand;
+import edu.kis.powp.jobs2d.command.ICompoundCommand;
+import edu.kis.powp.jobs2d.command.TriangleFigureComplexCommand;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindow;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindowCommandChangeObserver;
+import edu.kis.powp.jobs2d.drivers.DriverManager;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
 import edu.kis.powp.jobs2d.events.*;
 import edu.kis.powp.jobs2d.features.CommandsFeature;
@@ -29,12 +33,9 @@ public class TestJobs2dApp {
                 DriverFeature.getDriverManager());
         SelectTestFigure2OptionListener selectTestFigure2OptionListener = new SelectTestFigure2OptionListener(
                 DriverFeature.getDriverManager());
-        SelectTestComplexCommandOptionListener selectTestComplexCommandOptionListener = new SelectTestComplexCommandOptionListener(
-                DriverFeature.getDriverManager());
 
         application.addTest("Figure Joe 1", selectTestFigureOptionListener);
         application.addTest("Figure Joe 2", selectTestFigure2OptionListener);
-        application.addTest("ComplexCommand Triangle", selectTestComplexCommandOptionListener);
     }
 
     /**
@@ -44,7 +45,8 @@ public class TestJobs2dApp {
      */
     private static void setupCommandTests(Application application) {
         application.addTest("Load secret command", new SelectLoadSecretCommandOptionListener());
-
+        ICompoundCommand command = new TriangleFigureComplexCommand().createCompoundCommand();
+        CommandsFeature.getDriverCommandManager().setCurrentCommand(command);
         application.addTest("Run command", new SelectRunCurrentCommandOptionListener(DriverFeature.getDriverManager()));
 
     }
