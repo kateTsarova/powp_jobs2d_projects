@@ -12,9 +12,13 @@ import edu.kis.powp.jobs2d.command.gui.CommandManagerWindow;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindowCommandChangeObserver;
 import edu.kis.powp.jobs2d.drivers.TransformationDriver;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
+
 import edu.kis.powp.jobs2d.drivers.transformation.Flip;
 import edu.kis.powp.jobs2d.drivers.transformation.Rotate;
 import edu.kis.powp.jobs2d.drivers.transformation.Scale;
+import edu.kis.powp.jobs2d.drivers.composite.DriverComposite;
+import edu.kis.powp.jobs2d.drivers.composite.IDriverComposite;
+
 import edu.kis.powp.jobs2d.events.SelectLoadSecretCommandOptionListener;
 import edu.kis.powp.jobs2d.events.SelectRunCurrentCommandOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigure2OptionListener;
@@ -87,6 +91,12 @@ public class TestJobs2dApp {
         DriverFeature.addDriver("Flip (horizontally)", rotateDriver4);
 
         DriverFeature.updateDriverInfo();
+
+        IDriverComposite compositeDriver = new DriverComposite();
+        compositeDriver.add(driver);
+        compositeDriver.add(loggerDriver);
+
+        DriverFeature.addDriver("Composite Driver", compositeDriver);
     }
 
     private static void setupWindows(Application application) {
