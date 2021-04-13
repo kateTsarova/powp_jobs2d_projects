@@ -13,7 +13,6 @@ import edu.kis.powp.jobs2d.command.gui.CommandManagerWindowCommandChangeObserver
 import edu.kis.powp.jobs2d.drivers.TransformationDriver;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
 
-import edu.kis.powp.jobs2d.drivers.transformation.Flip;
 import edu.kis.powp.jobs2d.drivers.transformation.Rotate;
 import edu.kis.powp.jobs2d.drivers.transformation.Scale;
 import edu.kis.powp.jobs2d.drivers.composite.DriverComposite;
@@ -85,9 +84,9 @@ public class TestJobs2dApp {
         TransformationDriver rotateDriver2 = new TransformationDriver(new Rotate(Math.PI/3), new LineDriverAdapter(drawerController, LineFactory.getBasicLine(), "basic line"));
         DriverFeature.addDriver("Rotate (PI/3)", rotateDriver2);
 
-        TransformationDriver rotateDriver3 = new TransformationDriver(new Flip(false, true), new LineDriverAdapter(drawerController, LineFactory.getBasicLine(), "basic line"));
+        TransformationDriver rotateDriver3 = new TransformationDriver(new Scale(1d, -1d), new LineDriverAdapter(drawerController, LineFactory.getBasicLine(), "basic line"));
         DriverFeature.addDriver("Flip (vertically)", rotateDriver3);
-        TransformationDriver rotateDriver4 = new TransformationDriver(new Flip(true, false), new LineDriverAdapter(drawerController, LineFactory.getBasicLine(), "basic line"));
+        TransformationDriver rotateDriver4 = new TransformationDriver(new Scale(-1d, 1d), new LineDriverAdapter(drawerController, LineFactory.getBasicLine(), "basic line"));
         DriverFeature.addDriver("Flip (horizontally)", rotateDriver4);
 
         DriverFeature.updateDriverInfo();
