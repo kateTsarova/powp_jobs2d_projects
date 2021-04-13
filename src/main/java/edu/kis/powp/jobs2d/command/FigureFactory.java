@@ -1,5 +1,5 @@
 package edu.kis.powp.jobs2d.command;
 
-public interface FigureComplexCommandFactory {
+public interface FigureFactory {
     ComplexCommand createComplexCommand();
 }

@@ -1,6 +1,6 @@
 package edu.kis.powp.jobs2d.command;
 
-public class TriangleFigureComplexCommand implements FigureComplexCommandFactory {
+public class TriangleFigureComplexCommand implements FigureFactory {
 
     @Override
     public ComplexCommand createComplexCommand() {
