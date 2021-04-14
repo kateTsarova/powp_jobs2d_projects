@@ -116,12 +116,7 @@ public class TestJobs2dApp {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Application app = new Application("Jobs 2D");
-                
-                DriverFeature drvf = new DriverFeature(app);
-                CommandsFeature cmdf = new CommandsFeature();
-                DrawerFeature drwf = new DrawerFeature(app);
-                
-                ApplicationConfig.configure(drvf, cmdf, drwf);
+                ApplicationConfig.configure(new DriverFeature(app), new CommandsFeature(), new DrawerFeature(app));
                 
                 setupDrivers(app);
                 setupPresetTests(app);
