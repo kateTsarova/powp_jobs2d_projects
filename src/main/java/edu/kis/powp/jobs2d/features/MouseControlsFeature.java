@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
 import edu.kis.powp.jobs2d.Job2dDriver;
 import edu.kis.powp.jobs2d.drivers.DriverManager;
 
-public class MouseFeature {
+public class MouseControlsFeature {
     private JPanel panel;
     private DriverManager driverManager;
 
@@ -54,7 +54,7 @@ public class MouseFeature {
         }
     };
 
-    public MouseFeature(DriverManager driverManager, JPanel panel) {
+    public MouseControlsFeature(DriverManager driverManager, JPanel panel) {
         this.panel = panel;
         this.driverManager = driverManager;
     }
