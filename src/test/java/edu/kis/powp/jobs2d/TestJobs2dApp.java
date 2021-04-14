@@ -45,8 +45,7 @@ public class TestJobs2dApp {
      */
     private static void setupCommandTests(Application application) {
         application.addTest("Load secret command", new SelectLoadSecretCommandOptionListener());
-        ICompoundCommand command = new TriangleFigureComplexCommand().createCompoundCommand();
-        CommandsFeature.getDriverCommandManager().setCurrentCommand(command);
+        application.addTest("Load compound command", new SelectLoadCompoundCommandOptionListener());
         application.addTest("Run command", new SelectRunCurrentCommandOptionListener(DriverFeature.getDriverManager()));
 
     }
