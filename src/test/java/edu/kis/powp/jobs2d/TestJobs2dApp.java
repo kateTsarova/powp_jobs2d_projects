@@ -17,10 +17,10 @@ import edu.kis.powp.jobs2d.events.SelectLoadSecretCommandOptionListener;
 import edu.kis.powp.jobs2d.events.SelectRunCurrentCommandOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigure2OptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
+import edu.kis.powp.jobs2d.features.ApplicationConfig;
 import edu.kis.powp.jobs2d.features.CommandsFeature;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
-import edu.kis.powp.jobs2d.features.Features;
 
 public class TestJobs2dApp {
     private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -121,11 +121,8 @@ public class TestJobs2dApp {
                 CommandsFeature cmdf = new CommandsFeature();
                 DrawerFeature drwf = new DrawerFeature(app);
                 
-                drvf.setup();
-                cmdf.setup();
-                drwf.setup();
+                ApplicationConfig.configure(drvf, cmdf, drwf);
                 
-                                
                 setupDrivers(app);
                 setupPresetTests(app);
                 setupCommandTests(app);
