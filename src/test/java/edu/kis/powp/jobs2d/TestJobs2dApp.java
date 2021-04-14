@@ -20,10 +20,12 @@ import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.CommandsFeature;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
+import edu.kis.powp.jobs2d.features.Features;
 
 public class TestJobs2dApp {
     private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
+    
     /**
      * Setup test concerning preset figures in context.
      *
@@ -57,6 +59,7 @@ public class TestJobs2dApp {
      * @param application Application context.
      */
     private static void setupDrivers(Application application) {
+   	
         Job2dDriver loggerDriver = new LoggerDriver();
         DriverFeature.addDriver("Logger driver", loggerDriver);
 
@@ -77,6 +80,7 @@ public class TestJobs2dApp {
     }
 
     private static void setupWindows(Application application) {
+
 
         CommandManagerWindow commandManager = new CommandManagerWindow(CommandsFeature.getDriverCommandManager());
         application.addWindowComponent("Command Manager", commandManager);
@@ -112,10 +116,16 @@ public class TestJobs2dApp {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Application app = new Application("Jobs 2D");
-                DrawerFeature.setupDrawerPlugin(app);
-                CommandsFeature.setupCommandManager();
-
-                DriverFeature.setupDriverPlugin(app);
+                
+                DriverFeature drvf = new DriverFeature(app);
+                CommandsFeature cmdf = new CommandsFeature();
+                DrawerFeature drwf = new DrawerFeature(app);
+                
+                drvf.setup();
+                cmdf.setup();
+                drwf.setup();
+                
+                                
                 setupDrivers(app);
                 setupPresetTests(app);
                 setupCommandTests(app);
