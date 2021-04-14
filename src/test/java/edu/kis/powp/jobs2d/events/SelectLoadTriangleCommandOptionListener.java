@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SelectLoadCompoundCommandOptionListener implements ActionListener {
+public class SelectLoadTriangleCommandOptionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
