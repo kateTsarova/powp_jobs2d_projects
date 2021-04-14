@@ -30,7 +30,7 @@ public class TestJobs2dApp {
         SelectTestFigure2OptionListener selectTestFigure2OptionListener = new SelectTestFigure2OptionListener(
                 DriverFeature.getDriverManager());
         SelectTestMouseListener selectTestMouseListener = new SelectTestMouseListener(
-                DriverFeature.getDriverManager(), application);
+                DriverFeature.getDriverManager(), application.getFreePanel());
 
         application.addTest("Figure Joe 1", selectTestFigureOptionListener);
         application.addTest("Figure Joe 2", selectTestFigure2OptionListener);
