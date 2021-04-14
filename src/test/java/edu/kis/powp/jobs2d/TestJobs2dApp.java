@@ -18,10 +18,7 @@ import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
 
 import edu.kis.powp.jobs2d.drivers.composite.DriverComposite;
 import edu.kis.powp.jobs2d.drivers.composite.IDriverComposite;
-import edu.kis.powp.jobs2d.events.SelectLoadSecretCommandOptionListener;
-import edu.kis.powp.jobs2d.events.SelectRunCurrentCommandOptionListener;
-import edu.kis.powp.jobs2d.events.SelectTestFigure2OptionListener;
-import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
+import edu.kis.powp.jobs2d.events.*;
 
 import edu.kis.powp.jobs2d.features.CommandsFeature;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
