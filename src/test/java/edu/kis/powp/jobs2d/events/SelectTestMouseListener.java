@@ -21,7 +21,7 @@ public class SelectTestMouseListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (listenersAttached) return;
-        new MouseFeature(driverManager, app).attachListeners();
+        new MouseFeature(driverManager, app.getFreePanel()).attachListeners();
         listenersAttached = true;
     }
 }

@@ -3,7 +3,6 @@ package edu.kis.powp.jobs2d.features;
 import javax.swing.JPanel;
 import javax.swing.event.MouseInputListener;
 
-import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.Job2dDriver;
 import edu.kis.powp.jobs2d.drivers.DriverManager;
 
@@ -14,8 +13,8 @@ public class MouseFeature {
     private final int LEFT_BUTTON = 1;
     private final int RIGHT_BUTTON = 3;
 
-    public MouseFeature(DriverManager driverManager, Application application) {
-        this.panel = application.getFreePanel();
+    public MouseFeature(DriverManager driverManager, JPanel panel) {
+        this.panel = panel;
         this.driverManager = driverManager;
     }
 
