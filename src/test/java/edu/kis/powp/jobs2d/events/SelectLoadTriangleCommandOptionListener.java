@@ -14,6 +14,8 @@ public class SelectLoadTriangleCommandOptionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         ICompoundCommand command = new TriangleFigureComplexCommand().createCompoundCommand();
-        CommandsFeature.getDriverCommandManager().setCurrentCommand(command);
+
+        DriverCommandManager manager = CommandsFeature.getDriverCommandManager();
+        manager.setCurrentCommand(command);
     }
 }
