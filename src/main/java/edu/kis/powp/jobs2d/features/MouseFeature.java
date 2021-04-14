@@ -9,14 +9,18 @@ import edu.kis.powp.jobs2d.drivers.DriverManager;
 
 public class MouseFeature {
     private JPanel panel;
-    private Job2dDriver driver;
+    private DriverManager driverManager;
 
     private final int LEFT_BUTTON = 1;
     private final int RIGHT_BUTTON = 3;
 
     public MouseFeature(DriverManager driverManager, Application application) {
         this.panel = application.getFreePanel();
-        this.driver = driverManager.getCurrentDriver();
+        this.driverManager = driverManager;
+    }
+
+    public void setDriverManager(DriverManager driverManager) {
+        this.driverManager = driverManager;
     }
 
     public void attachListeners() {
@@ -29,6 +33,7 @@ public class MouseFeature {
           public void mousePressed(java.awt.event.MouseEvent e) {
               final int halfWidth = panel.getWidth() / 2;
               final int halfHeight = panel.getHeight() / 2;
+              final Job2dDriver driver = driverManager.getCurrentDriver();
               if(e.getButton() == LEFT_BUTTON){
                   driver.operateTo(e.getX() - halfWidth, e.getY() - halfHeight);
                   driver.setPosition(e.getX() - halfWidth, e.getY() - halfHeight);
