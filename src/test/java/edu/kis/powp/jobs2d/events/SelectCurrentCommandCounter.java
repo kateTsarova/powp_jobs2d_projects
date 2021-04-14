@@ -11,9 +11,7 @@ import edu.kis.powp.jobs2d.features.CommandsFeature;
 
 public class SelectCurrentCommandCounter implements ActionListener {
     private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-    // public SelectCurrentCommandCounter(Logger logger2) {
-    //     this.logger = logger2;
-    // }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
