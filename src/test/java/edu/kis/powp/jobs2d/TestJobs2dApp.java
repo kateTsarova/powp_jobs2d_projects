@@ -20,6 +20,15 @@ import edu.kis.powp.jobs2d.events.*;
 
 import edu.kis.powp.jobs2d.drivers.composite.DriverComposite;
 import edu.kis.powp.jobs2d.drivers.composite.IDriverComposite;
+<<<<<<< HEAD
+=======
+
+import edu.kis.powp.jobs2d.events.SelectLoadSecretCommandOptionListener;
+import edu.kis.powp.jobs2d.events.SelectRunCurrentCommandOptionListener;
+import edu.kis.powp.jobs2d.events.SelectTestFigure2OptionListener;
+import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
+
+>>>>>>> d0ee73a3c653d8052d3ea979e828b25e7be7f803
 import edu.kis.powp.jobs2d.features.CommandsFeature;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
@@ -52,7 +61,7 @@ public class TestJobs2dApp {
      */
     private static void setupCommandTests(Application application) {
         application.addTest("Load secret command", new SelectLoadSecretCommandOptionListener());
-
+        application.addTest("Load triangle command", new SelectLoadTriangleCommandOptionListener());
         application.addTest("Run command", new SelectRunCurrentCommandOptionListener(DriverFeature.getDriverManager()));
 
         application.addTest("Count command", new SelectCurrentCommandCounter());
