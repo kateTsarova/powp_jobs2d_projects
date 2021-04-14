@@ -9,19 +9,14 @@ import java.awt.event.ActionListener;
 
 public class SelectTestMouseListener implements ActionListener {
 
-    private DriverManager driverManager;
-    private Application app;
-    private boolean listenersAttached = false;
+    private MouseFeature feature = null;
 
     public SelectTestMouseListener(DriverManager driverManager, Application application) {
-        this.app = application;
-        this.driverManager = driverManager;
+        this.feature = new MouseFeature(driverManager, application.getFreePanel());
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (listenersAttached) return;
-        new MouseFeature(driverManager, app.getFreePanel()).attachListeners();
-        listenersAttached = true;
+        feature.attachListeners();
     }
 }
