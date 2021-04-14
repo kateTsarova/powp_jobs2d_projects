@@ -10,10 +10,17 @@ import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindow;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindowCommandChangeObserver;
+import edu.kis.powp.jobs2d.drivers.TransformationDriver;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
+
+import edu.kis.powp.jobs2d.drivers.transformation.Rotate;
+import edu.kis.powp.jobs2d.drivers.transformation.Scale;
+
 import edu.kis.powp.jobs2d.events.*;
+
 import edu.kis.powp.jobs2d.drivers.composite.DriverComposite;
 import edu.kis.powp.jobs2d.drivers.composite.IDriverComposite;
+
 import edu.kis.powp.jobs2d.events.SelectLoadSecretCommandOptionListener;
 import edu.kis.powp.jobs2d.events.SelectRunCurrentCommandOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigure2OptionListener;
@@ -71,6 +78,23 @@ public class TestJobs2dApp {
 
         driver = new LineDriverAdapter(drawerController, LineFactory.getSpecialLine(), "special");
         DriverFeature.addDriver("Special line Simulator", driver);
+
+        TransformationDriver scaleDriver = new TransformationDriver(new Scale(0.5d, 0.5d), new LineDriverAdapter(drawerController, LineFactory.getBasicLine(), "basic line"));
+        DriverFeature.addDriver("Scale (0.5x)", scaleDriver);
+        TransformationDriver scaleDriver2 = new TransformationDriver(new Scale(1.5d, 1.5d), new LineDriverAdapter(drawerController, LineFactory.getBasicLine(), "basic line"));
+        DriverFeature.addDriver("Scale (1.5x)", scaleDriver2);
+
+
+        TransformationDriver rotateDriver = new TransformationDriver(new Rotate(Math.PI/2), new LineDriverAdapter(drawerController, LineFactory.getBasicLine(), "basic line"));
+        DriverFeature.addDriver("Rotate (PI/2)", rotateDriver);
+        TransformationDriver rotateDriver2 = new TransformationDriver(new Rotate(Math.PI/3), new LineDriverAdapter(drawerController, LineFactory.getBasicLine(), "basic line"));
+        DriverFeature.addDriver("Rotate (PI/3)", rotateDriver2);
+
+        TransformationDriver rotateDriver3 = new TransformationDriver(new Scale(1d, -1d), new LineDriverAdapter(drawerController, LineFactory.getBasicLine(), "basic line"));
+        DriverFeature.addDriver("Flip (vertically)", rotateDriver3);
+        TransformationDriver rotateDriver4 = new TransformationDriver(new Scale(-1d, 1d), new LineDriverAdapter(drawerController, LineFactory.getBasicLine(), "basic line"));
+        DriverFeature.addDriver("Flip (horizontally)", rotateDriver4);
+
         DriverFeature.updateDriverInfo();
 
         IDriverComposite compositeDriver = new DriverComposite();
