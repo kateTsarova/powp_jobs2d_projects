@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CompoundCommand implements ICompoundCommand {
-    String name;
-    List<DriverCommand> driverCommands;
+    private String name;
+    private List<DriverCommand> driverCommands;
 
     public CompoundCommand(List<DriverCommand> driverCommands, String name) {
         this.driverCommands = driverCommands;
@@ -42,7 +42,6 @@ public class CompoundCommand implements ICompoundCommand {
         return cloneCompoundCommand;
 
     }
-
 
     @Override
     public String toString() {
