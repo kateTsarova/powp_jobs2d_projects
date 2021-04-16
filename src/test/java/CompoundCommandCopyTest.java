@@ -12,7 +12,6 @@ public class CompoundCommandCopyTest {
 
     @Test
     public void cloneTest() {
-
         DriverCommand c1 = new SetPositionCommand(0, 0);
         OperateToCommand c2 = new OperateToCommand(-20, -50);
         DriverCommand c3 = new OperateToCommand(50, 0);
@@ -34,38 +33,30 @@ public class CompoundCommandCopyTest {
 
         CompoundCommand originalCompoundCommand = new CompoundCommand(ncl2);
 
-
         CompoundCommand copyCompoundCommand = (CompoundCommand) originalCompoundCommand.clone();
 
         Iterator<DriverCommand> copyIterator = copyCompoundCommand.iterator();
         Iterator<DriverCommand> originalIterator = originalCompoundCommand.iterator();
 
-        assert(isDifferent(copyIterator,originalIterator)==true);
-
+        assert (isDifferent(copyIterator, originalIterator) == true);
     }
 
-    boolean isDifferent(Iterator<DriverCommand> cl1,  Iterator<DriverCommand> cl2){
+    boolean isDifferent(Iterator<DriverCommand> cl1, Iterator<DriverCommand> cl2) {
 
-        while (cl1.hasNext() && cl2.hasNext()){
+        while (cl1.hasNext() && cl2.hasNext()) {
 
             DriverCommand object1 = cl1.next();
             DriverCommand object2 = cl2.next();
 
-            if(object1 instanceof CompoundCommand && object2 instanceof CompoundCommand){
-
+            if (object1 instanceof CompoundCommand && object2 instanceof CompoundCommand) {
                 boolean result = isDifferent(((CompoundCommand) object1).iterator(), ((CompoundCommand) object2).iterator());
 
-                if(!result)return false;
-
-
-            }else if(object1 instanceof DriverCommand && object2 instanceof DriverCommand ){
-                if(object1==object2)return false;
-            }else
+                if (!result) return false;
+            } else if (object1 instanceof DriverCommand && object2 instanceof DriverCommand) {
+                if (object1 == object2) return false;
+            } else
                 return false;
-
         }
-
         return true;
     }
-
 }
