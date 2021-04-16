@@ -1,5 +1,7 @@
 package edu.kis.powp.jobs2d.command;
 
+import edu.kis.powp.jobs2d.command.visitor.Visitor;
+
 import java.util.Iterator;
 
 /**
@@ -9,6 +11,10 @@ public interface ICompoundCommand extends DriverCommand {
 
     public Iterator<DriverCommand> iterator();
 
+    @Override
+    default void accept(Visitor visitor) {
+        visitor.visitICompoundCommand(this);
+    }
 	public ICompoundCommand clone();
 
 
