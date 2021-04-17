@@ -40,7 +40,6 @@ public class CompoundCommand implements ICompoundCommand {
         this.driverCommands.forEach((e) -> cloneCompoundCommand.driverCommands.add(e.clone()));
         cloneCompoundCommand.name = this.name;
         return cloneCompoundCommand;
-
     }
 
     @Override

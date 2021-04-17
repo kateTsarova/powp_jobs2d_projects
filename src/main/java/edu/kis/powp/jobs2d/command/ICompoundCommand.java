@@ -15,7 +15,5 @@ public interface ICompoundCommand extends DriverCommand {
     default void accept(Visitor visitor) {
         visitor.visitICompoundCommand(this);
     }
-	public ICompoundCommand clone();
-
-
+    ICompoundCommand clone();
 }

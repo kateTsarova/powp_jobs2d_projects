@@ -26,16 +26,6 @@ public class OperateToCommand implements DriverCommand {
 		return new OperateToCommand(this.posX,this.posY);
 	}
 
-
-
-    public int getPosX() {
-        return posX;
-    }
-
-    public int getPosY() {
-        return posY;
-    }
-
     @Override
     public void accept(Visitor visitor) {
         visitor.visitOperateToCommand(this);
