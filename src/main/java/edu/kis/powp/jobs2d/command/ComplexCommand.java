@@ -1,9 +1,11 @@
 package edu.kis.powp.jobs2d.command;
 
 import edu.kis.powp.jobs2d.Job2dDriver;
+import edu.kis.powp.jobs2d.command.visitor.Visitor;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ComplexCommand implements ICompoundCommand {
@@ -21,6 +23,19 @@ public class ComplexCommand implements ICompoundCommand {
     @Override
     public Iterator<DriverCommand> iterator() {
         return commands.iterator();
+    }
+
+    @Override
+    public void accept(Visitor visitor) {
+
+    }
+
+    @Override
+    public ICompoundCommand clone() {
+        List<DriverCommand> cloneCommands = new ArrayList<>();
+        this.commands.forEach((e) -> cloneCommands.add(e.clone()));
+
+        return new ComplexCommand(cloneCommands);
     }
 
     public static final class Builder {
