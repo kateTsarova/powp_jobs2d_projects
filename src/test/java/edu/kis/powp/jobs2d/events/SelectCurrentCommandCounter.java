@@ -19,9 +19,9 @@ public class SelectCurrentCommandCounter implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         DriverCommand command = driverCommandManager.getCurrentCommand();
-        CommandTypeCounterVisitor visitor = new CommandTypeCounterVisitor();
-        command.accept(visitor);
-        logger.info(visitor.getResults());
+        CommandTypeCounterVisitor countingVisitor = new CommandTypeCounterVisitor();
+        command.accept(countingVisitor);
+        logger.info(countingVisitor.getResults());
     }
 
 }
