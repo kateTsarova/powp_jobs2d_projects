@@ -30,6 +30,10 @@ public class CommandTypeCounterVisitor implements Visitor {
         return setPositionCounter;
     }
 
+    public String getResults(){
+        return this.toString();
+    }
+
     public String toString() {
         return "Operate to: " + operateToCounter + " set position: " + setPositionCounter + " .";
     }

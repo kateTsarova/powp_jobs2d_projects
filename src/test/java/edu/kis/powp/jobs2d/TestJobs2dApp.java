@@ -55,7 +55,7 @@ public class TestJobs2dApp {
         application.addTest("Load triangle command", new SelectLoadTriangleCommandOptionListener());
         application.addTest("Run command", new SelectRunCurrentCommandOptionListener(DriverFeature.getDriverManager()));
 
-        application.addTest("Count command", new SelectCurrentCommandCounter());
+        application.addTest("Count command", new SelectCurrentCommandCounter(CommandsFeature.getDriverCommandManager()));
 
 
     }
