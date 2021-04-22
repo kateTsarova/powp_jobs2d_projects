@@ -4,20 +4,15 @@ package edu.kis.powp.jobs2d.command.visitor;
 import edu.kis.powp.jobs2d.drivers.transformation.Point;
 
 public class Canvas{
-
-    private final int startX;
-    private final int endX;
-    private final int startY;
-    private final int endY;
+    private final Point start;
+    private final Point end;
 
     public Canvas(int height, int width){
-        endX = width/2;
-        endY = height/2;
-        startX = -(width/2);
-        startY = -(height/2);
+        start = new Point(-(width/2), -(height/2));
+        end = new Point(width/2, height/2);
     }
 
     public boolean checkIfPointIsOnCanvas(Point point) {
-        return (point.x > startX && point.x < endX) && (point.y > startY && point.y < endY);
+        return (point.x > start.x && point.x < end.x) && (point.y > start.y && point.y < end.y);
     }
 }
