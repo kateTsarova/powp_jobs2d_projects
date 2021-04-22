@@ -10,7 +10,7 @@ import java.util.Iterator;
 
 public class CommandCanvasVisitor implements Visitor {
 
-    private Canvas canvas;
+    private final Canvas canvas;
     private boolean allPointsOnCanvas = true;
 
     public CommandCanvasVisitor(Canvas canvas) {
