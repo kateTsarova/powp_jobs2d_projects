@@ -15,6 +15,9 @@ import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
 
 import edu.kis.powp.jobs2d.drivers.transformation.Rotate;
 import edu.kis.powp.jobs2d.drivers.transformation.Scale;
+
+import edu.kis.powp.jobs2d.events.*;
+
 import edu.kis.powp.jobs2d.drivers.composite.DriverComposite;
 import edu.kis.powp.jobs2d.drivers.composite.IDriverComposite;
 
@@ -39,9 +42,12 @@ public class TestJobs2dApp {
                 DriverFeature.getDriverManager());
         SelectTestFigure2OptionListener selectTestFigure2OptionListener = new SelectTestFigure2OptionListener(
                 DriverFeature.getDriverManager());
+        SelectTestMouseListener selectTestMouseListener = new SelectTestMouseListener(
+                DriverFeature.getDriverManager(), application.getFreePanel());
 
         application.addTest("Figure Joe 1", selectTestFigureOptionListener);
         application.addTest("Figure Joe 2", selectTestFigure2OptionListener);
+        application.addTest("Enable mouse controls", selectTestMouseListener);
     }
 
     /**
