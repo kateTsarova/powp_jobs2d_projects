@@ -27,7 +27,7 @@ public class ComplexCommand implements ICompoundCommand {
 
     @Override
     public void accept(Visitor visitor) {
-
+        visitor.visitICompoundCommand(this);
     }
 
     @Override

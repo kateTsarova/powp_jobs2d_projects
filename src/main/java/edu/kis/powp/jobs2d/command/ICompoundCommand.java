@@ -8,12 +8,14 @@ import java.util.Iterator;
  * Interface extending Job2dDriverCommand to execute more than one command.
  */
 public interface ICompoundCommand extends DriverCommand {
-
-    public Iterator<DriverCommand> iterator();
+    Iterator<DriverCommand> iterator();
 
     @Override
     default void accept(Visitor visitor) {
         visitor.visitICompoundCommand(this);
     }
-    ICompoundCommand clone();
+
+    default ICompoundCommand clone() {
+        return null;
+    }
 }
