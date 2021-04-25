@@ -2,7 +2,7 @@ package edu.kis.powp.jobs2d.drivers.usageMonitor;
 
 import edu.kis.powp.jobs2d.Job2dDriver;
 
-public class DriverMonitor implements Job2dDriver, IDriverMonitor
+public class DriverMonitor implements IDriverMonitor
 {
     private Job2dDriver job2dDriver;
     private double headDistance = 0;
@@ -28,6 +28,7 @@ public class DriverMonitor implements Job2dDriver, IDriverMonitor
     public void operateTo(int x, int y)
     {
         job2dDriver.operateTo(x, y);
+        headDistance += calculateDistance(currentX, currentY, x, y);
         operationDistance += calculateDistance(currentX, currentY, x, y);
         currentX = x;
         currentY = y;
