@@ -20,21 +20,21 @@ public class TransformationsVisitor implements Visitor {
     }
 
     @Override
-    public void visit(OperateToCommand operateToCommand) {
+    public void visitOperateToCommand(OperateToCommand operateToCommand) {
         Point point = operateToCommand.getPoint();
         Point newPoint = transformation.transform(point);
         complexCommandBuilder.addCommand(new OperateToCommand(newPoint.x, newPoint.y));
     }
 
     @Override
-    public void visit(SetPositionCommand setPositionCommand) {
+    public void visitSetPositionCommand(SetPositionCommand setPositionCommand) {
         Point point = setPositionCommand.getPoint();
         Point newPoint = transformation.transform(point);
         complexCommandBuilder.addCommand(new SetPositionCommand(newPoint.x, newPoint.y));
     }
 
     @Override
-    public void visit(ICompoundCommand iCompoundCommand) {
+    public void visitICompoundCommand(ICompoundCommand iCompoundCommand) {
         Iterator<DriverCommand> itr = iCompoundCommand.iterator();
         while (itr.hasNext()) {
             itr.next().accept(this);

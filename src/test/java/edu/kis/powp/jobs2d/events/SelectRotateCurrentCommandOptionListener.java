@@ -14,7 +14,7 @@ public class SelectRotateCurrentCommandOptionListener implements ActionListener 
     public void actionPerformed(ActionEvent e) {
         ICompoundCommand command = (ICompoundCommand) CommandsFeature.getDriverCommandManager().getCurrentCommand();
         TransformationsVisitor transformationsVisitor = new TransformationsVisitor(new Rotate(Math.PI / 2));
-        transformationsVisitor.visit(command);
+        transformationsVisitor.visitICompoundCommand(command);
         command = transformationsVisitor.getTransformedComplexCommand();
         CommandsFeature.getDriverCommandManager().setCurrentCommand(command);
     }

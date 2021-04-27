@@ -13,12 +13,12 @@ public class CommandTypeCounterVisitor implements Visitor {
     private long setPositionCounter;
 
     @Override
-    public void visit(OperateToCommand operateToCommand) {
+    public void visitOperateToCommand(OperateToCommand operateToCommand) {
         System.out.println("Operate to counter: " + operateToCounter++);
     }
 
     @Override
-    public void visit(SetPositionCommand setPositionCommand) {
+    public void visitSetPositionCommand(SetPositionCommand setPositionCommand) {
         System.out.println("Set position counter: " + setPositionCounter++);
     }
 
@@ -35,7 +35,7 @@ public class CommandTypeCounterVisitor implements Visitor {
     }
 
     @Override
-    public void visit(ICompoundCommand iCompoundCommand) {
+    public void visitICompoundCommand(ICompoundCommand iCompoundCommand) {
         Iterator<DriverCommand> itr = iCompoundCommand.iterator();
         while (itr.hasNext())
             itr.next().accept(this);

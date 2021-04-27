@@ -27,6 +27,6 @@ public class OperateToCommand implements DriverCommand {
 
     @Override
     public void accept(Visitor visitor) {
-        visitor.visit(this);
+        visitor.visitOperateToCommand(this);
     }
 }
