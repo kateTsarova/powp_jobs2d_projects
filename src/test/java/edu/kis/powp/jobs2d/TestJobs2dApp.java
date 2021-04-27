@@ -62,6 +62,7 @@ public class TestJobs2dApp {
         application.addTest("Load secret command", new SelectLoadSecretCommandOptionListener());
         application.addTest("Load triangle command", new SelectLoadTriangleCommandOptionListener());
         application.addTest("Load Macro", new SelectLoadMacroOptionListener(MacroFeature.getDriver(), CommandsFeature.getDriverCommandManager()));
+        application.addTest("Clear Macro", new SelectClearMacroOptionListener(MacroFeature.getDriver(), CommandsFeature.getDriverCommandManager()));
         application.addTest("Run command", new SelectRunCurrentCommandOptionListener(DriverFeature.getDriverManager()));
 
     }
