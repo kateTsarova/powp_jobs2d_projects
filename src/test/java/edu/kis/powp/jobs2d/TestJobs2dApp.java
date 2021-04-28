@@ -16,6 +16,7 @@ import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
 import edu.kis.powp.jobs2d.drivers.transformation.Rotate;
 import edu.kis.powp.jobs2d.drivers.transformation.Scale;
 
+import edu.kis.powp.jobs2d.drivers.usageMonitor.IMonitorDriverDecorator;
 import edu.kis.powp.jobs2d.drivers.usageMonitor.MonitorDriverDecorator;
 import edu.kis.powp.jobs2d.drivers.usageMonitor.UsageMonitorManager;
 import edu.kis.powp.jobs2d.events.*;
@@ -107,6 +108,9 @@ public class TestJobs2dApp {
         compositeDriver.add(loggerDriver);
 
         DriverFeature.addDriver("Composite Driver", compositeDriver);
+
+        UsageMonitorManager.setDriver(driver);
+        DriverFeature.addDriver("Monitored Driver", UsageMonitorManager.getDriver());
     }
 
     private static void setupWindows(Application application) {

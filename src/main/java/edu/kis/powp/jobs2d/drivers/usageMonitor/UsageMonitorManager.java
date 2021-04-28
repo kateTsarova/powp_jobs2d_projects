@@ -21,8 +21,11 @@ public class UsageMonitorManager {
 
     public static void printReport()
     {
-        logger.log(Level.INFO, "Head distance: " + monitor.getHeadDistance());
-        logger.log(Level.INFO, "Operation distance: " + monitor.getOperationDistance());
+        if (monitor != null) {
+            logger.log(Level.INFO, "Head distance: " + monitor.getHeadDistance());
+            logger.log(Level.INFO, "Operation distance: " + monitor.getOperationDistance());
+        } else {
+            logger.log(Level.INFO, "No driver attached to monitor");
+        }
     }
-
 }
