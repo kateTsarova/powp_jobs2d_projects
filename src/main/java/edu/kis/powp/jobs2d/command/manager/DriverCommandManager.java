@@ -1,11 +1,9 @@
 package edu.kis.powp.jobs2d.command.manager;
 
-import java.util.Iterator;
 import java.util.List;
 
-import edu.kis.powp.jobs2d.Job2dDriver;
+import edu.kis.powp.jobs2d.command.CompoundCommand;
 import edu.kis.powp.jobs2d.command.DriverCommand;
-import edu.kis.powp.jobs2d.command.ICompoundCommand;
 import edu.kis.powp.observer.Publisher;
 
 /**
@@ -26,32 +24,15 @@ public class DriverCommandManager {
         changePublisher.notifyObservers();
     }
 
-    /**
-     * Set current command.
-     *
-     * @param commandList list of commands representing a compound command.
-     * @param name        name of the command.
-     */
-    public synchronized void setCurrentCommand(List<DriverCommand> commandList, String name) {
-        setCurrentCommand(new ICompoundCommand() {
+	/**
+	 * Set current command.
+	 * 
+	 * @param commandList list of commands representing a compound command.
+	 * @param name        name of the command.
+	 */
+	public synchronized void setCurrentCommand(List<DriverCommand> commandList, String name) {
+		setCurrentCommand(new CompoundCommand(commandList,name) );
 
-            List<DriverCommand> driverCommands = commandList;
-
-            @Override
-            public void execute(Job2dDriver driver) {
-                driverCommands.forEach((c) -> c.execute(driver));
-            }
-
-            @Override
-            public Iterator<DriverCommand> iterator() {
-                return driverCommands.iterator();
-            }
-
-            @Override
-            public String toString() {
-                return name;
-            }
-        });
 
     }
 
