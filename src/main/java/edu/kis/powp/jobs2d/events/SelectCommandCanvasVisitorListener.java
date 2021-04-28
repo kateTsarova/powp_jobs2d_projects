@@ -1,6 +1,7 @@
 package edu.kis.powp.jobs2d.events;
 
 import edu.kis.powp.jobs2d.command.DriverCommand;
+import edu.kis.powp.jobs2d.command.visitor.Canvas;
 import edu.kis.powp.jobs2d.command.visitor.RectangleCanvas;
 import edu.kis.powp.jobs2d.command.visitor.CommandCanvasVisitor;
 import edu.kis.powp.jobs2d.drivers.DriverManager;
@@ -14,11 +15,11 @@ public class SelectCommandCanvasVisitorListener implements ActionListener {
 
     private Logger logger = Logger.getLogger("global");
     private DriverManager driverManager ;
-    private RectangleCanvas rectangleCanvas;
+    private Canvas canvas;
 
-    public SelectCommandCanvasVisitorListener(DriverManager driverManager, RectangleCanvas rectangleCanvas) {
+    public SelectCommandCanvasVisitorListener(DriverManager driverManager, Canvas canvas) {
         this.driverManager = driverManager;
-        this.rectangleCanvas = rectangleCanvas;
+        this.canvas = canvas;
     }
 
     @Override
@@ -29,7 +30,7 @@ public class SelectCommandCanvasVisitorListener implements ActionListener {
         if(command==null){
             logger.info("No command loaded");
         }else {
-            CommandCanvasVisitor visitor = new CommandCanvasVisitor(rectangleCanvas);
+            CommandCanvasVisitor visitor = new CommandCanvasVisitor(canvas);
 
             command.accept(visitor);
 

@@ -10,6 +10,8 @@ import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindow;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindowCommandChangeObserver;
+import edu.kis.powp.jobs2d.command.visitor.Canvas;
+import edu.kis.powp.jobs2d.command.visitor.CanvasFactory;
 import edu.kis.powp.jobs2d.command.visitor.RectangleCanvas;
 import edu.kis.powp.jobs2d.drivers.TransformationDriver;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
@@ -61,10 +63,10 @@ public class TestJobs2dApp {
 
         application.addTest("Run command", new SelectRunCurrentCommandOptionListener(DriverFeature.getDriverManager()));
 
-        RectangleCanvas A4 = new RectangleCanvas(210,297);
-        RectangleCanvas A7 = new RectangleCanvas(74,105);
-        application.addTest("Canvas checker A4", new SelectCommandCanvasVisitorListener(DriverFeature.getDriverManager(),A4));
-        application.addTest("Canvas checker A7", new SelectCommandCanvasVisitorListener(DriverFeature.getDriverManager(),A7));
+        Canvas A4 = CanvasFactory.getCanvas("A4");
+        Canvas A7 = CanvasFactory.getCanvas("A7");
+        application.addTest("Canvas checker A4", new SelectCommandCanvasVisitorListener(DriverFeature.getDriverManager(), A4));
+        application.addTest("Canvas checker A7", new SelectCommandCanvasVisitorListener(DriverFeature.getDriverManager(), A7));
     }
 
     /**

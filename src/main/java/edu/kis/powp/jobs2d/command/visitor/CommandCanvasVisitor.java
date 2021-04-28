@@ -13,7 +13,7 @@ public class CommandCanvasVisitor implements Visitor {
     private final Canvas canvas;
     private boolean allPointsOnCanvas = true;
 
-    public CommandCanvasVisitor(RectangleCanvas canvas) {
+    public CommandCanvasVisitor(Canvas canvas) {
         this.canvas = canvas;
     }
 
