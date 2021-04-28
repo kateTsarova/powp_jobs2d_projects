@@ -10,7 +10,7 @@ import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindow;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindowCommandChangeObserver;
-import edu.kis.powp.jobs2d.command.visitor.Canvas;
+import edu.kis.powp.jobs2d.command.visitor.RectangleCanvas;
 import edu.kis.powp.jobs2d.drivers.TransformationDriver;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
 
@@ -61,8 +61,8 @@ public class TestJobs2dApp {
 
         application.addTest("Run command", new SelectRunCurrentCommandOptionListener(DriverFeature.getDriverManager()));
 
-        Canvas A4 = new Canvas(210,297);
-        Canvas A7 = new Canvas(74,105);
+        RectangleCanvas A4 = new RectangleCanvas(210,297);
+        RectangleCanvas A7 = new RectangleCanvas(74,105);
         application.addTest("Canvas checker A4", new SelectCommandCanvasVisitorListener(DriverFeature.getDriverManager(),A4));
         application.addTest("Canvas checker A7", new SelectCommandCanvasVisitorListener(DriverFeature.getDriverManager(),A7));
     }
