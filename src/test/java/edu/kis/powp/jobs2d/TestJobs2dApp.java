@@ -70,9 +70,9 @@ public class TestJobs2dApp {
         application.addTest("Run command", new SelectRunCurrentCommandOptionListener(DriverFeature.getDriverManager()));
 
         Canvas paperA4 = CanvasFactory.getCanvas("A4");
-        Canvas paperA7 = CanvasFactory.getCanvas("A7");
+        Canvas paperA5 = CanvasFactory.getCanvas("A5");
         application.addTest("Canvas checker A4", new SelectCommandCanvasVisitorListener(DriverFeature.getDriverManager(), paperA4));
-        application.addTest("Canvas checker A7", new SelectCommandCanvasVisitorListener(DriverFeature.getDriverManager(), paperA7));
+        application.addTest("Canvas checker A5", new SelectCommandCanvasVisitorListener(DriverFeature.getDriverManager(), paperA5));
 
         application.addTest("Count command", new SelectCurrentCommandCounter(CommandsFeature.getDriverCommandManager()));
     }

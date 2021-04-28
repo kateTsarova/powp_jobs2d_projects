@@ -7,8 +7,8 @@ public class CanvasFactory {
 
         if(canvasType.equalsIgnoreCase("A4"))
             return new RectangleCanvas(210,297);
-        else if(canvasType.equalsIgnoreCase("A7"))
-            return new RectangleCanvas(74, 105);
+        else if(canvasType.equalsIgnoreCase("A5"))
+            return new RectangleCanvas(148, 210);
 
         return null;
     }
