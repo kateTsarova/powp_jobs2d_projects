@@ -14,12 +14,12 @@ public class CommandTypeCounterVisitor implements Visitor {
 
     @Override
     public void visitOperateToCommand(OperateToCommand operateToCommand) {
-        System.out.println("Operate to counter: " + operateToCounter++);
+        operateToCounter++;
     }
 
     @Override
     public void visitSetPositionCommand(SetPositionCommand setPositionCommand) {
-        System.out.println("Set position counter: " + setPositionCounter++);
+        setPositionCounter++;
     }
 
     public long getOperateToCounter() {
@@ -28,6 +28,10 @@ public class CommandTypeCounterVisitor implements Visitor {
 
     public long getSetPositionCounter() {
         return setPositionCounter;
+    }
+
+    public String getResults(){
+        return this.toString();
     }
 
     public String toString() {
