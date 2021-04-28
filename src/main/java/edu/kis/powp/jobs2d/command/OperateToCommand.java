@@ -2,23 +2,27 @@ package edu.kis.powp.jobs2d.command;
 
 import edu.kis.powp.jobs2d.Job2dDriver;
 import edu.kis.powp.jobs2d.command.visitor.Visitor;
+import edu.kis.powp.jobs2d.drivers.transformation.Point;
 
 /**
  * Implementation of Job2dDriverCommand for operateTo command functionality.
  */
 public class OperateToCommand implements DriverCommand {
 
-    private int posX, posY;
+    private final Point point;
 
     public OperateToCommand(int posX, int posY) {
         super();
-        this.posX = posX;
-        this.posY = posY;
+        point = new Point(posX, posY);
+    }
+
+    public Point getPoint() {
+        return point;
     }
 
     @Override
     public void execute(Job2dDriver driver) {
-        driver.operateTo(posX, posY);
+        driver.operateTo(point.x, point.y);
     }
 
 	@Override
