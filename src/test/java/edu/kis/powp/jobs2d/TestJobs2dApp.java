@@ -29,6 +29,7 @@ import edu.kis.powp.jobs2d.features.ApplicationConfig;
 import edu.kis.powp.jobs2d.features.CommandsFeature;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
+import edu.kis.powp.jobs2d.features.MacroFeature;
 
 public class TestJobs2dApp {
     private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -60,6 +61,8 @@ public class TestJobs2dApp {
     private static void setupCommandTests(Application application) {
         application.addTest("Load secret command", new SelectLoadSecretCommandOptionListener());
         application.addTest("Load triangle command", new SelectLoadTriangleCommandOptionListener());
+        application.addTest("Load Macro", new SelectLoadMacroOptionListener(MacroFeature.getDriver(), CommandsFeature.getDriverCommandManager()));
+        application.addTest("Clear Macro", new SelectClearMacroOptionListener(MacroFeature.getDriver(), CommandsFeature.getDriverCommandManager()));
         application.addTest("Run command", new SelectRunCurrentCommandOptionListener(DriverFeature.getDriverManager()));
 
     }
@@ -104,6 +107,8 @@ public class TestJobs2dApp {
         compositeDriver.add(driver);
         compositeDriver.add(loggerDriver);
 
+        DriverFeature.addDriver("Macro mode", MacroFeature.getDriver());
+        
         DriverFeature.addDriver("Composite Driver", compositeDriver);
     }
 
@@ -144,7 +149,7 @@ public class TestJobs2dApp {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Application app = new Application("Jobs 2D");
-                ApplicationConfig.configure(new DriverFeature(app), new CommandsFeature(), new DrawerFeature(app));
+                ApplicationConfig.configure(new DriverFeature(app), new CommandsFeature(), new DrawerFeature(app), new MacroFeature());
                 
                 setupDrivers(app);
                 setupPresetTests(app);
