@@ -23,7 +23,7 @@ public class SelectCommandCanvasVisitorListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        logger.info("Testing Visitor for CommandVisitorCanvas");
+        logger.info("Testing Visitor for CommandCanvasVisitor");
 
         DriverCommand command = CommandsFeature.getDriverCommandManager().getCurrentCommand();
         if(command==null){
@@ -34,9 +34,9 @@ public class SelectCommandCanvasVisitorListener implements ActionListener {
             command.accept(visitor);
 
             if(visitor.checkIfAllPointsOnCanvas())
-                logger.info("Boundary is crossed");
+                logger.info("Not all points are on canvas");
             else
-                logger.info("Boundary is not crossed");
+                logger.info("All points are on canvas");
         }
     }
 }

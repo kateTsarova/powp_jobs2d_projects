@@ -10,24 +10,24 @@ import java.util.Iterator;
 
 public class CommandCanvasVisitor implements Visitor {
 
-    private final RectangleCanvas rectangleCanvas;
+    private final Canvas canvas;
     private boolean allPointsOnCanvas = true;
 
-    public CommandCanvasVisitor(RectangleCanvas rectangleCanvas) {
-        this.rectangleCanvas = rectangleCanvas;
+    public CommandCanvasVisitor(RectangleCanvas canvas) {
+        this.canvas = canvas;
     }
 
     @Override
     public void visitOperateToCommand(OperateToCommand operateToCommand) {
         Point pointToCheck = new Point(operateToCommand.getPosX(), operateToCommand.getPosY());
-        if(!rectangleCanvas.checkIfPointIsOnCanvas(pointToCheck))
+        if(!canvas.checkIfPointIsOnCanvas(pointToCheck))
             allPointsOnCanvas = false;
     }
 
     @Override
     public void visitSetPositionCommand(SetPositionCommand setPositionCommand) {
         Point pointToCheck = new Point(setPositionCommand.getPosX(), setPositionCommand.getPosY());
-        if(!rectangleCanvas.checkIfPointIsOnCanvas(pointToCheck))
+        if(!canvas.checkIfPointIsOnCanvas(pointToCheck))
             allPointsOnCanvas = false;
     }
 
