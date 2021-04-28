@@ -27,19 +27,11 @@ public class SetPositionCommand implements DriverCommand {
 
 	@Override
 	public DriverCommand clone() {
-		return new OperateToCommand(this.posX,this.posY);
+		return new OperateToCommand(point.x, point.y);
 	}
 
     @Override
     public void accept(Visitor visitor) {
         visitor.visitSetPositionCommand(this);
-    }
-
-    public int getPosX() {
-        return posX;
-    }
-
-    public int getPosY() {
-        return posY;
     }
 }

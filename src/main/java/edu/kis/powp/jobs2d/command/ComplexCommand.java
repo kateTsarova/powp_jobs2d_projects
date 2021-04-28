@@ -30,10 +30,6 @@ public class ComplexCommand implements ICompoundCommand {
         return commands.iterator();
     }
 
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.visitICompoundCommand(this);
-    }
 
     @Override
     public ICompoundCommand clone() {

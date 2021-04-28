@@ -19,14 +19,16 @@ public class CommandCanvasVisitor implements Visitor {
 
     @Override
     public void visitOperateToCommand(OperateToCommand operateToCommand) {
-        Point pointToCheck = new Point(operateToCommand.getPosX(), operateToCommand.getPosY());
-        allPointsOnCanvas = canvas.checkIfPointIsOnCanvas(pointToCheck);
+        Point pointToCheck = operateToCommand.getPoint();
+        if(!canvas.checkIfPointIsOnCanvas(pointToCheck))
+            allPointsOnCanvas = false;
     }
 
     @Override
     public void visitSetPositionCommand(SetPositionCommand setPositionCommand) {
-        Point pointToCheck = new Point(setPositionCommand.getPosX(), setPositionCommand.getPosY());
-        allPointsOnCanvas = canvas.checkIfPointIsOnCanvas(pointToCheck);
+        Point pointToCheck = setPositionCommand.getPoint();
+        if(!canvas.checkIfPointIsOnCanvas(pointToCheck))
+            allPointsOnCanvas = false;
     }
 
     @Override
@@ -41,5 +43,4 @@ public class CommandCanvasVisitor implements Visitor {
     public boolean checkIfAllPointsOnCanvas(){
         return allPointsOnCanvas;
     }
-
 }

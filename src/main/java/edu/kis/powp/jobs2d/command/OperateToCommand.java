@@ -27,20 +27,11 @@ public class OperateToCommand implements DriverCommand {
 
 	@Override
 	public DriverCommand clone() {
-		return new OperateToCommand(this.posX,this.posY);
+		return new OperateToCommand(point.x, point.y);
 	}
 
     @Override
     public void accept(Visitor visitor) {
         visitor.visitOperateToCommand(this);
-    }
-
-
-    public int getPosX() {
-        return posX;
-    }
-
-    public int getPosY() {
-        return posY;
     }
 }
