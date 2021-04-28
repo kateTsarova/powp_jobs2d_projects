@@ -20,15 +20,13 @@ public class CommandCanvasVisitor implements Visitor {
     @Override
     public void visitOperateToCommand(OperateToCommand operateToCommand) {
         Point pointToCheck = new Point(operateToCommand.getPosX(), operateToCommand.getPosY());
-        if(!canvas.checkIfPointIsOnCanvas(pointToCheck))
-            allPointsOnCanvas = false;
+        allPointsOnCanvas = canvas.checkIfPointIsOnCanvas(pointToCheck);
     }
 
     @Override
     public void visitSetPositionCommand(SetPositionCommand setPositionCommand) {
         Point pointToCheck = new Point(setPositionCommand.getPosX(), setPositionCommand.getPosY());
-        if(!canvas.checkIfPointIsOnCanvas(pointToCheck))
-            allPointsOnCanvas = false;
+        allPointsOnCanvas = canvas.checkIfPointIsOnCanvas(pointToCheck);
     }
 
     @Override
