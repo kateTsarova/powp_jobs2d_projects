@@ -7,11 +7,11 @@ import java.util.logging.Logger;
 
 public class UsageMonitorManager {
     private static Logger logger = Logger.getLogger("global");
-    private static IDriverMonitor monitor;
+    private static IMonitorDriverDecorator monitor;
 
     public static void setDriver(Job2dDriver driver)
     {
-        monitor = new DriverMonitor(driver);
+        monitor = new MonitorDriverDecorator(driver);
     }
 
     public static Job2dDriver getDriver()

@@ -2,7 +2,7 @@ package edu.kis.powp.jobs2d.drivers.usageMonitor;
 
 import edu.kis.powp.jobs2d.Job2dDriver;
 
-public class DriverMonitor implements IDriverMonitor
+public class MonitorDriverDecorator implements IMonitorDriverDecorator
 {
     private Job2dDriver job2dDriver;
     private double headDistance = 0;
@@ -10,7 +10,7 @@ public class DriverMonitor implements IDriverMonitor
     private int currentX = 0;
     private int currentY = 0;
 
-    public DriverMonitor(Job2dDriver job2dDriver)
+    public MonitorDriverDecorator(Job2dDriver job2dDriver)
     {
         this.job2dDriver = job2dDriver;
     }
