@@ -13,5 +13,8 @@ public interface DriverCommand {
      * @param driver driver.
      */
     void execute(Job2dDriver driver);
+
+    DriverCommand clone();
+
     void accept(Visitor visitor);
 }
