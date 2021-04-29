@@ -25,10 +25,10 @@ public class OperateToCommand implements DriverCommand {
         driver.operateTo(point.x, point.y);
     }
 
-	@Override
-	public DriverCommand clone() {
-		return new OperateToCommand(this.posX,this.posY);
-	}
+    @Override
+    public DriverCommand clone() {
+        return new OperateToCommand(point.x, point.y);
+    }
 
     @Override
     public void accept(Visitor visitor) {
