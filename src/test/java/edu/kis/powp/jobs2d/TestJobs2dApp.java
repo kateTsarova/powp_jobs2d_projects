@@ -13,6 +13,8 @@ import edu.kis.powp.jobs2d.drivers.TransformationDriver;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
 import edu.kis.powp.jobs2d.drivers.transformation.Rotate;
 import edu.kis.powp.jobs2d.drivers.transformation.Scale;
+import edu.kis.powp.jobs2d.drivers.usageMonitor.MonitorDriverDecorator;
+import edu.kis.powp.jobs2d.drivers.usageMonitor.UsageMonitorManager;
 import edu.kis.powp.jobs2d.events.*;
 import edu.kis.powp.jobs2d.drivers.composite.DriverComposite;
 import edu.kis.powp.jobs2d.drivers.composite.IDriverComposite;
@@ -112,6 +114,9 @@ public class TestJobs2dApp {
         DriverFeature.addDriver("Macro mode", MacroFeature.getDriver());
         
         DriverFeature.addDriver("Composite Driver", compositeDriver);
+
+        UsageMonitorManager.setDriver(driver);
+        DriverFeature.addDriver("Monitored Driver", UsageMonitorManager.getDriver());
     }
 
     private static void setupWindows(Application application) {
@@ -144,6 +149,11 @@ public class TestJobs2dApp {
         application.addComponentMenuElement(Logger.class, "OFF logging", (ActionEvent e) -> logger.setLevel(Level.OFF));
     }
 
+    private static void setupDriverMonitor(Application application) {
+        application.addComponentMenu(MonitorDriverDecorator.class, "Driver Monitor", 5);
+        application.addComponentMenuElement(MonitorDriverDecorator.class, "Print report", (ActionEvent e) -> UsageMonitorManager.printReport());
+    }
+
     /**
      * Launch the application.
      */
@@ -158,6 +168,7 @@ public class TestJobs2dApp {
                 setupCommandTests(app);
                 setupLogger(app);
                 setupWindows(app);
+                setupDriverMonitor(app);
 
                 app.setVisibility(true);
             }
