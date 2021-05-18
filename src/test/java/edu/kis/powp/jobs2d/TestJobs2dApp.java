@@ -71,8 +71,8 @@ public class TestJobs2dApp {
         application.addTest("Clear Macro", new SelectClearMacroOptionListener(MacroFeature.getDriver(), CommandsFeature.getDriverCommandManager()));
         application.addTest("Run command", new SelectRunCurrentCommandOptionListener(DriverFeature.getDriverManager()));
 
-        Canvas paperA4 = CanvasFactory.getCanvas("A4");
-        Canvas paperA5 = CanvasFactory.getCanvas("A5");
+        Canvas paperA4 = CanvasFactory.getCanvasA4();
+        Canvas paperA5 = CanvasFactory.getCanvasA5();
         application.addTest("Canvas checker A4", new SelectCommandCanvasVisitorListener(DriverFeature.getDriverManager(), paperA4));
         application.addTest("Canvas checker A5", new SelectCommandCanvasVisitorListener(DriverFeature.getDriverManager(), paperA5));
 
