@@ -5,7 +5,6 @@ import edu.kis.powp.jobs2d.command.visitor.Visitor;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 public class ComplexCommand implements ICompoundCommand {
