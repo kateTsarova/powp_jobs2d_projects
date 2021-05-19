@@ -22,7 +22,7 @@ import edu.kis.powp.jobs2d.events.SelectLoadSecretCommandOptionListener;
 import edu.kis.powp.jobs2d.events.SelectRunCurrentCommandOptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigure2OptionListener;
 import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
-import edu.kis.powp.jobs2d.features.ApplicationConfig;
+import edu.kis.powp.jobs2d.features.ApplicationManager;
 import edu.kis.powp.jobs2d.features.CommandsFeature;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
@@ -165,7 +165,9 @@ public class TestJobs2dApp {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 Application app = new Application("Jobs 2D");
-                ApplicationConfig.configure(new DriverFeature(app), new CommandsFeature(), new DrawerFeature(app), new MacroFeature());
+                ApplicationManager manager = new ApplicationManager();
+                manager.addMany(new DriverFeature(app), new CommandsFeature(), new DrawerFeature(app), new MacroFeature());
+                manager.executeAll();
 
                 setupDrivers(app);
                 setupPresetTests(app);
