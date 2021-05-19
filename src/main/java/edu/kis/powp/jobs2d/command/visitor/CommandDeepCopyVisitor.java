@@ -26,11 +26,9 @@ public class CommandDeepCopyVisitor implements Visitor {
     public void visitICompoundCommand(ICompoundCommand iCompoundCommand) {
         Iterator<DriverCommand> commandIterator = iCompoundCommand.iterator();
         ComplexCommand.Builder builder = new ComplexCommand.Builder();
-
         while (commandIterator.hasNext()) {
-            CommandDeepCopyVisitor temporaryVisitor = new CommandDeepCopyVisitor();
-            commandIterator.next().accept(temporaryVisitor);
-            builder.addCommand(temporaryVisitor.getCopy());
+            commandIterator.next().accept(this);
+            builder.addCommand(copiedCommands);
         }
         copiedCommands = builder.build();
     }
