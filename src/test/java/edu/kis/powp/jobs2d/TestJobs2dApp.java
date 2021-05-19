@@ -107,15 +107,11 @@ public class TestJobs2dApp {
 
         DriverFeature.updateDriverInfo();
 
-        IDriverComposite macroDriver = new DriverComposite();
-        macroDriver.add(driver);
-        macroDriver.add(MacroFeature.getDriver());
-
-        DriverFeature.addDriver("Macro mode", macroDriver);
-        
         IDriverComposite compositeDriver = new DriverComposite();
         compositeDriver.add(driver);
         compositeDriver.add(loggerDriver);
+
+        DriverFeature.addDriver("Macro mode", MacroFeature.getDriver());
         
         DriverFeature.addDriver("Composite Driver", compositeDriver);
 
