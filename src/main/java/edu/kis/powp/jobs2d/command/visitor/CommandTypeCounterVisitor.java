@@ -1,11 +1,11 @@
 package edu.kis.powp.jobs2d.command.visitor;
 
-import java.util.Iterator;
-
 import edu.kis.powp.jobs2d.command.DriverCommand;
 import edu.kis.powp.jobs2d.command.ICompoundCommand;
 import edu.kis.powp.jobs2d.command.OperateToCommand;
 import edu.kis.powp.jobs2d.command.SetPositionCommand;
+
+import java.util.Iterator;
 
 public class CommandTypeCounterVisitor implements Visitor {
 
