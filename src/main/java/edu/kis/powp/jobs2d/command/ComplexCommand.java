@@ -5,7 +5,6 @@ import edu.kis.powp.jobs2d.command.visitor.Visitor;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 public class ComplexCommand implements ICompoundCommand {
@@ -21,13 +20,13 @@ public class ComplexCommand implements ICompoundCommand {
     }
 
     @Override
-    public Iterator<DriverCommand> iterator() {
-        return commands.iterator();
+    public void accept(Visitor visitor) {
+        visitor.visitICompoundCommand(this);
     }
 
     @Override
-    public void accept(Visitor visitor) {
-        visitor.visitICompoundCommand(this);
+    public Iterator<DriverCommand> iterator() {
+        return commands.iterator();
     }
 
     @Override

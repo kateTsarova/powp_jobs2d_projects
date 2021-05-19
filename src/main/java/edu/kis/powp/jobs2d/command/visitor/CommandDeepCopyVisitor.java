@@ -12,25 +12,20 @@ public class CommandDeepCopyVisitor implements Visitor {
 
     @Override
     public void visitOperateToCommand(OperateToCommand operateToCommand) {
-        driverCommands.add(new OperateToCommand(operateToCommand.getPosX(), operateToCommand.getPosY()));
+        driverCommands.add(new OperateToCommand(operateToCommand.getPoint().x, operateToCommand.getPoint().y));
     }
 
     @Override
     public void visitSetPositionCommand(SetPositionCommand setPositionCommand) {
-        driverCommands.add(new OperateToCommand(setPositionCommand.getPosX(), setPositionCommand.getPosY()));
+        driverCommands.add(new OperateToCommand(setPositionCommand.getPoint().x, setPositionCommand.getPoint().y));
     }
 
     @Override
     public void visitICompoundCommand(ICompoundCommand iCompoundCommand) {
         Iterator<DriverCommand> commandIterator = iCompoundCommand.iterator();
-        List<DriverCommand> commandHandler = new LinkedList<>();
-
         while (commandIterator.hasNext()) {
-            DriverCommand item = commandIterator.next();
-            commandHandler.add(item);
+            commandIterator.next().accept(this);
         }
-
-        driverCommands.add(new CompoundCommand(commandHandler));
     }
 
     public List<DriverCommand> getCopy() {
