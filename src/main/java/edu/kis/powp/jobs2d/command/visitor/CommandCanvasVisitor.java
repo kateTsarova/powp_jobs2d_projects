@@ -32,9 +32,14 @@ public class CommandCanvasVisitor implements Visitor {
     @Override
     public void visitICompoundCommand(ICompoundCommand iCompoundCommand) {
         Iterator<DriverCommand> iterator = iCompoundCommand.iterator();
+        this.allPointsOnCanvas = true;
+
         while (iterator.hasNext()) {
             DriverCommand driverCommand = iterator.next();
             driverCommand.accept(this);
+
+            if(!this.allPointsOnCanvas)
+                break;
         }
     }
 
