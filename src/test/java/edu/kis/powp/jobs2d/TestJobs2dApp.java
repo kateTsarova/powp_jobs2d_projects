@@ -9,6 +9,9 @@ import edu.kis.legacy.drawer.shape.LineFactory;
 import edu.kis.powp.appbase.Application;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindow;
 import edu.kis.powp.jobs2d.command.gui.CommandManagerWindowCommandChangeObserver;
+import edu.kis.powp.jobs2d.command.visitor.Canvas;
+import edu.kis.powp.jobs2d.command.visitor.CanvasFactory;
+import edu.kis.powp.jobs2d.command.visitor.RectangleCanvas;
 import edu.kis.powp.jobs2d.drivers.TransformationDriver;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
 import edu.kis.powp.jobs2d.drivers.transformation.Rotate;
@@ -67,6 +70,11 @@ public class TestJobs2dApp {
         application.addTest("Load Macro", new SelectLoadMacroOptionListener(MacroFeature.getDriver(), CommandsFeature.getDriverCommandManager()));
         application.addTest("Clear Macro", new SelectClearMacroOptionListener(MacroFeature.getDriver(), CommandsFeature.getDriverCommandManager()));
         application.addTest("Run command", new SelectRunCurrentCommandOptionListener(DriverFeature.getDriverManager()));
+
+        Canvas paperA4 = CanvasFactory.getCanvasA4();
+        Canvas paperA5 = CanvasFactory.getCanvasA5();
+        application.addTest("Canvas checker A4", new SelectCommandCanvasVisitorListener(DriverFeature.getDriverManager(), paperA4));
+        application.addTest("Canvas checker A5", new SelectCommandCanvasVisitorListener(DriverFeature.getDriverManager(), paperA5));
 
         application.addTest("Count command", new SelectCurrentCommandCounter(CommandsFeature.getDriverCommandManager()));
     }

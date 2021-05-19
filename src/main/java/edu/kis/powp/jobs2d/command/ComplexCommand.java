@@ -29,6 +29,7 @@ public class ComplexCommand implements ICompoundCommand {
         return commands.iterator();
     }
 
+
     @Override
     public ICompoundCommand clone() {
         List<DriverCommand> cloneCommands = new ArrayList<>();
