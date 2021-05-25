@@ -12,7 +12,7 @@ import edu.kis.powp.jobs2d.command.gui.CommandManagerWindowCommandChangeObserver
 import edu.kis.powp.jobs2d.command.visitor.Canvas;
 import edu.kis.powp.jobs2d.command.visitor.CanvasFactory;
 import edu.kis.powp.jobs2d.command.visitor.RectangleCanvas;
-import edu.kis.powp.jobs2d.drivers.DriverChangeEventSubscriber;
+import edu.kis.powp.jobs2d.drivers.DriverInfoUpdater;
 import edu.kis.powp.jobs2d.drivers.TransformationDriver;
 import edu.kis.powp.jobs2d.drivers.adapter.LineDriverAdapter;
 import edu.kis.powp.jobs2d.drivers.transformation.Rotate;
@@ -114,7 +114,7 @@ public class TestJobs2dApp {
         TransformationDriver rotateDriver4 = new TransformationDriver(new Scale(-1d, 1d), new LineDriverAdapter(drawerController, LineFactory.getBasicLine(), "basic line"));
         DriverFeature.addDriver("Flip (horizontally)", rotateDriver4);
 
-        DriverChangeEventSubscriber subscriber = new DriverChangeEventSubscriber();
+        DriverInfoUpdater subscriber = new DriverInfoUpdater();
         DriverFeature.getDriverManager().getPublisher().addSubscriber(subscriber);
 
         IDriverComposite compositeDriver = new DriverComposite();
