@@ -1,10 +1,11 @@
-package edu.kis.powp.jobs2d.command;
+package edu.kis.powp.jobs2d.command.driverCommands.ICompoundCommands;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import edu.kis.powp.jobs2d.Job2dDriver;
+import edu.kis.powp.jobs2d.command.driverCommands.DriverCommand;
 
 public final class ImmutableCompoundCommand implements ICompoundCommand {
 

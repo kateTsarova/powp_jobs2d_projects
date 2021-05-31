@@ -1,7 +1,7 @@
-import edu.kis.powp.jobs2d.command.CompoundCommand;
-import edu.kis.powp.jobs2d.command.DriverCommand;
-import edu.kis.powp.jobs2d.command.OperateToCommand;
-import edu.kis.powp.jobs2d.command.SetPositionCommand;
+import edu.kis.powp.jobs2d.command.driverCommands.ICompoundCommands.CompoundCommand;
+import edu.kis.powp.jobs2d.command.driverCommands.DriverCommand;
+import edu.kis.powp.jobs2d.command.driverCommands.OperateToCommand;
+import edu.kis.powp.jobs2d.command.driverCommands.SetPositionCommand;
 import org.junit.Test;
 
 import java.util.ArrayList;

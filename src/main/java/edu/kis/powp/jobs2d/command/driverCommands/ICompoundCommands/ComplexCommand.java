@@ -1,6 +1,7 @@
-package edu.kis.powp.jobs2d.command;
+package edu.kis.powp.jobs2d.command.driverCommands.ICompoundCommands;
 
 import edu.kis.powp.jobs2d.Job2dDriver;
+import edu.kis.powp.jobs2d.command.driverCommands.DriverCommand;
 import edu.kis.powp.jobs2d.command.visitor.Visitor;
 
 import java.util.ArrayList;

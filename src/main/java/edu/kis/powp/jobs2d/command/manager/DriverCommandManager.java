@@ -2,8 +2,8 @@ package edu.kis.powp.jobs2d.command.manager;
 
 import java.util.List;
 
-import edu.kis.powp.jobs2d.command.CompoundCommand;
-import edu.kis.powp.jobs2d.command.DriverCommand;
+import edu.kis.powp.jobs2d.command.driverCommands.ICompoundCommands.CompoundCommand;
+import edu.kis.powp.jobs2d.command.driverCommands.DriverCommand;
 import edu.kis.powp.observer.Publisher;
 
 /**
