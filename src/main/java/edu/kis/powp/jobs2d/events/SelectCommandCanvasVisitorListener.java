@@ -1,6 +1,6 @@
 package edu.kis.powp.jobs2d.events;
 
-import edu.kis.powp.jobs2d.command.driverCommands.DriverCommand;
+import edu.kis.powp.jobs2d.command.DriverCommand;
 import edu.kis.powp.jobs2d.command.canvas.Canvas;
 import edu.kis.powp.jobs2d.command.visitor.CommandCanvasVisitor;
 import edu.kis.powp.jobs2d.drivers.DriverManager;

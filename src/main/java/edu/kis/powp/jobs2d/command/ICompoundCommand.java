@@ -1,6 +1,5 @@
-package edu.kis.powp.jobs2d.command.driverCommands.ICompoundCommands;
+package edu.kis.powp.jobs2d.command;
 
-import edu.kis.powp.jobs2d.command.driverCommands.DriverCommand;
 import edu.kis.powp.jobs2d.command.visitor.Visitor;
 
 import java.util.Iterator;

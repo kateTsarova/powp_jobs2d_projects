@@ -2,7 +2,7 @@ package edu.kis.powp.jobs2d.command.manager;
 
 import java.util.logging.Logger;
 
-import edu.kis.powp.jobs2d.command.driverCommands.DriverCommand;
+import edu.kis.powp.jobs2d.command.DriverCommand;
 import edu.kis.powp.jobs2d.features.CommandsFeature;
 import edu.kis.powp.observer.Subscriber;
 

@@ -1,10 +1,10 @@
 package edu.kis.powp.jobs2d.command.visitor;
 
-import edu.kis.powp.jobs2d.command.driverCommands.DriverCommand;
-import edu.kis.powp.jobs2d.command.driverCommands.OperateToCommand;
-import edu.kis.powp.jobs2d.command.driverCommands.SetPositionCommand;
-import edu.kis.powp.jobs2d.command.driverCommands.ICompoundCommands.ComplexCommand;
-import edu.kis.powp.jobs2d.command.driverCommands.ICompoundCommands.ICompoundCommand;
+import edu.kis.powp.jobs2d.command.DriverCommand;
+import edu.kis.powp.jobs2d.command.OperateToCommand;
+import edu.kis.powp.jobs2d.command.SetPositionCommand;
+import edu.kis.powp.jobs2d.command.ComplexCommand;
+import edu.kis.powp.jobs2d.command.ICompoundCommand;
 import edu.kis.powp.jobs2d.drivers.transformation.Point;
 import edu.kis.powp.jobs2d.drivers.transformation.PointTransformation;
 

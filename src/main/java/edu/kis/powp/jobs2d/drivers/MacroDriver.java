@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.kis.powp.jobs2d.Job2dDriver;
-import edu.kis.powp.jobs2d.command.driverCommands.ICompoundCommands.CompoundCommand;
-import edu.kis.powp.jobs2d.command.driverCommands.DriverCommand;
-import edu.kis.powp.jobs2d.command.driverCommands.OperateToCommand;
-import edu.kis.powp.jobs2d.command.driverCommands.SetPositionCommand;
+import edu.kis.powp.jobs2d.command.CompoundCommand;
+import edu.kis.powp.jobs2d.command.DriverCommand;
+import edu.kis.powp.jobs2d.command.OperateToCommand;
+import edu.kis.powp.jobs2d.command.SetPositionCommand;
 
 public class MacroDriver implements Job2dDriver {
 	private List<DriverCommand> commands = new ArrayList<>();

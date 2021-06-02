@@ -1,7 +1,7 @@
 package edu.kis.powp.jobs2d.events;
 
-import edu.kis.powp.jobs2d.command.figureFactories.TriangleFigureComplexCommand;
-import edu.kis.powp.jobs2d.command.driverCommands.ICompoundCommands.ICompoundCommand;
+import edu.kis.powp.jobs2d.command.figurefactory.TriangleFigureComplexCommand;
+import edu.kis.powp.jobs2d.command.ICompoundCommand;
 import edu.kis.powp.jobs2d.command.manager.DriverCommandManager;
 import edu.kis.powp.jobs2d.features.CommandsFeature;
 
