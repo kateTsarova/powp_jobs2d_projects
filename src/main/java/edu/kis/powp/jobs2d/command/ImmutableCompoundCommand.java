@@ -16,12 +16,18 @@ public final class ImmutableCompoundCommand implements ICompoundCommand {
     }
 
     public ImmutableCompoundCommand(List<DriverCommand> driverCommands, String str) {
-        super();
-
         name = str;
         commandsList = new ArrayList<>();
 
         for (DriverCommand command : driverCommands) {
+            commandsList.add(command.clone());
+        }
+    }
+
+    public ImmutableCompoundCommand(List<DriverCommand> commands) {
+        commandsList = new ArrayList<>();
+
+        for (DriverCommand command : commands) {
             commandsList.add(command.clone());
         }
     }
